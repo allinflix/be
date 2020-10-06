@@ -1,6 +1,9 @@
 const express = require('express');
 const cors = require('cors');
 
+// Routes
+const moviesRoute = require('./routes/movies');
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -15,6 +18,7 @@ app.use(
 );
 app.set('trust proxy', true);
 
+app.use('/movies', moviesRoute);
 // Custom Routes
 app.get('/', (req, res) => {
   res.send('<h1>AllInFlix</h1>');
